@@ -59,10 +59,10 @@ function App() {
     useTrackingStore();
 
   const handleSearch = async () => {
-    setIsLoading(true);
     if (trackingNumber.trim() === "") {
       return;
     }
+    setIsLoading(true);
     try {
       const result = await fetchTracking(trackingNumber);
       addTracking(result);
