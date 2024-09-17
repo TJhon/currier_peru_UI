@@ -36,9 +36,12 @@ import { useTrackingStore } from "./store";
 import { TrackingCard } from "./TrackingCard.jsx";
 
 // API call
+
+const requestURL =
+  "https://pkg-tracker-peru-ihyozc51h-tjhons-projects.vercel.app/";
+
 const fetchTracking = async (trackingNumber) => {
-  const response = await fetch(
-    `https://pkg-tracker-peru.onrender.com/${trackingNumber}`);
+  const response = await fetch(`${requestURL}${trackingNumber}`);
   if (!response.ok) {
     throw new Error("Tracking number not found");
   }
@@ -57,6 +60,9 @@ function App() {
 
   const handleSearch = async () => {
     setIsLoading(true);
+    if (trackingNumber.trim() === "") {
+      return;
+    }
     try {
       const result = await fetchTracking(trackingNumber);
       addTracking(result);
