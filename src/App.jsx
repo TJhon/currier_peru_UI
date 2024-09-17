@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useTrackingStore } from "./store";
 import { TrackingCard } from "./TrackingCard.jsx";
-
+import { Toaster, toast } from "sonner";
 // API call
 
 const requestURL =
@@ -124,6 +124,7 @@ function App() {
 
   return (
     <Router>
+      <Toaster />
       <div className="min-h-screen flex flex-col">
         <header className="sticky top-0 bg-background z-10 p-4 shadow-md">
           <div className="container mx-auto">

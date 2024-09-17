@@ -25,20 +25,13 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 // import { toast } from "@/components/ui/use-toast";
-
+import { Toaster, toast } from "sonner";
 export function TrackingCard({ tracking, onUpdate, onDelete }) {
   const copyToClipboard = (text) => {
-    // navigator.clipboard.writeText(text).then(
-    //   () => {
-    //     toast({
-    //       title: "Copiado al portapapeles",
-    //       description: "El número de rastreo ha sido copiado.",
-    //     });
-    //   },
-    //   (err) => {
-    //     console.error("Error al copiar: ", err);
-    //   }
-    // );
+    navigator.clipboard.writeText(text);
+    toast("El número de rastreo ha sido copiado.", {
+      description: text,
+    });
   };
 
   return (
@@ -47,6 +40,7 @@ export function TrackingCard({ tracking, onUpdate, onDelete }) {
         tracking.service_name
       )}`}
     >
+      <Toaster />
       <CardHeader className="flex flex-col space-y-2">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
