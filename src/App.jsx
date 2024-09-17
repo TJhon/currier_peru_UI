@@ -37,7 +37,8 @@ import { TrackingCard } from "./TrackingCard.jsx";
 
 // API call
 const fetchTracking = async (trackingNumber) => {
-  const response = await fetch(`http://127.0.0.1:8000/${trackingNumber}`);
+  const response = await fetch(
+    `https://pkg-tracker-peru-8o1lolicx-tjhons-projects.vercel.app/${trackingNumber}`);
   if (!response.ok) {
     throw new Error("Tracking number not found");
   }
